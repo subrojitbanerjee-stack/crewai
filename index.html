@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronicle Trails | Minimalist Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --accent: #e0e0e0;
+            --muted: #666;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--accent);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Modern Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+        }
+
+        .logo {
+            font-family: 'Syncopate', sans-serif;
+            font-weight: 700;
+            letter-spacing: 5px;
+            font-size: 1.2rem;
+        }
+
+        /* Hero Split Layout */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            background: url('https://i.ibb.co/XZbPjKrG/20260228-180413.jpg') no-repeat right center/cover;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background: linear-gradient(to right, var(--bg) 30%, transparent 90%);
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        /* Masonry Grid */
+        .feed {
+            padding: 100px 10%;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 30px;
+        }
+
+        .story {
+            position: relative;
+            background: var(--glass);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .story:hover {
+            border-color: white;
+            transform: scale(1.02);
+        }
+
+        .story img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            filter: grayscale(100%) brightness(0.7);
+            transition: 0.5s;
+        }
+
+        .story:hover img {
+            filter: grayscale(0%) brightness(1);
+        }
+
+        .story-text {
+            padding: 25px;
+        }
+
+        .story-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        /* Grid Placement */
+        .wide { grid-column: span 8; }
+        .tall { grid-column: span 4; }
+
+        /* Contact Section Minimal */
+        .contact {
+            padding: 100px 10%;
+            border-top: 1px solid #222;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .email-link {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 2vw;
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid white;
+        }
+
+        .email-link:hover {
+            color: #888;
+            border-color: #888;
+        }
+
+        footer {
+            padding: 50px 10%;
+            color: var(--muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 900px) {
+            .wide, .tall { grid-column: span 12; }
+            .hero-content h1 { font-size: 3rem; }
+            .contact-grid { flex-direction: column; align-items: flex-start; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">CHRONICLE</div>
+        <div style="font-size: 0.8rem; letter-spacing: 2px;">WB • 2026</div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Echoes of<br>The Past.</h1>
+            <p style="color: var(--muted); margin-bottom: 30px;">Curating the forgotten history of West Bengal through the lens of a modern wanderer.</p>
+            <a href="mailto:subrojitbanerjee@gmail.com" class="email-link">Get in touch</a>
+        </div>
+    </section>
+
+    <main class="feed">
+        <div class="story wide">
+            <img src="https://i.ibb.co/Mx3rt6Sn/Garh-Panchkot.jpg" alt="Garh Panchkot">
+            <div class="story-text">
+                <p style="color: var(--muted); font-size: 0.7rem; letter-spacing: 3px; margin-bottom: 5px;">CHAPTER I</p>
+                <h3>Garh Panchkot: The Silent Ruin</h3>
+            </div>
+        </div>
+
+        <div class="story tall">
+            <img src="https://i.ibb.co/MxWzr83Z/Photo-of-Kashipur-Rajbari-03.jpg" alt="Kashipur Rajbari">
+            <div class="story-text">
+                <p style="color: var(--muted); font-size: 0.7rem; letter-spacing: 3px; margin-bottom: 5px;">CHAPTER II</p>
+                <h3>Shadows of Kashipur</h3>
+            </div>
+        </div>
+
+        <div class="story tall">
+            <img src="https://i.ibb.co/RTs377NH/360-F-780951672-c-Jz-Ve-Oxybk-Hk-Ck-FDIOGUAlcq2-ADIHVO7.webp" alt="Historical">
+            <div class="story-text">
+                <p style="color: var(--muted); font-size: 0.7rem; letter-spacing: 3px; margin-bottom: 5px;">CHAPTER III</p>
+                <h3>Ancient Dust</h3>
+            </div>
+        </div>
+    </main>
+
+    <section class="contact">
+        <div class="contact-grid">
+            <div>
+                <p style="color: var(--muted); margin-bottom: 10px;">Say Hello</p>
+                <a href="mailto:subrojitbanerjee@gmail.com" class="email-link">subrojitbanerjee@gmail.com</a>
+            </div>
+            <div style="text-align: right;">
+                <p>Location: West Bengal</p>
+                <p style="color: var(--muted);">Available for collaborations</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Designed by Subrojit Banerjee &copy; 2026</p>
+    </footer>
+
+    <script>
+        // Smooth reveal on scroll
+        window.addEventListener('scroll', () => {
+            const stories = document.querySelectorAll('.story');
+            stories.forEach(story => {
+                const storyTop = story.getBoundingClientRect().top;
+                if(storyTop < window.innerHeight - 100) {
+                    story.style.opacity = '1';
+                    story.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Initialize state
+        document.querySelectorAll('.story').forEach(s => {
+            s.style.opacity = '0';
+            s.style.transform = 'translateY(50px)';
+            s.style.transition = 'all 0.8s ease-out';
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purulia: The Land of Red Soil | Chronicle Trails</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --terracotta: #b35a38;
+            --deep-slate: #2c2c2c;
+            --ivory: #f9f7f2;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--ivory);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--deep-slate);
+        }
+
+        /* Full Screen Parallax Hero */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://i.ibb.co/XZbPjKrG/20260228-180413.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            font-family: 'Marcellus', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            text-transform: uppercase;
+            letter-spacing: 10px;
+        }
+
+        /* Editorial Content Layout */
+        .content-section {
+            max-width: 1100px;
+            margin: -100px auto 50px;
+            background: white;
+            padding: 80px 50px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 2;
+            color: #555;
+            margin-bottom: 80px;
+            font-style: italic;
+        }
+
+        /* History Feature Row */
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 120px;
+        }
+
+        .feature:nth-child(even) { flex-direction: row-reverse; }
+
+        .feature-img {
+            flex: 1;
+            overflow: hidden;
+            height: 500px;
+            position: relative;
+        }
+
+        .feature-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .feature-img:hover img { transform: scale(1.1); }
+
+        .feature-info { flex: 1; }
+
+        .feature-info span {
+            color: var(--terracotta);
+            font-weight: 600;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+        }
+
+        .feature-info h2 {
+            font-family: 'Marcellus', serif;
+            font-size: 2.5rem;
+            margin: 15px 0;
+        }
+
+        .feature-info p {
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Contact Footer */
+        .contact-box {
+            background: var(--deep-slate);
+            color: white;
+            padding: 100px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-left h3 { font-family: 'Marcellus', serif; font-size: 2rem; }
+        .contact-right a { color: var(--terracotta); font-size: 1.5rem; text-decoration: none; border-bottom: 1px solid; }
+
+        @media (max-width: 768px) {
+            .feature { flex-direction: column !important; }
+            .content-section { padding: 40px 20px; margin-top: -50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>PURULIA</h1>
+            <p>The Land of Palms and Palash</p>
+        </div>
+    </section>
+
+    <div class="content-section">
+        <p class="intro-text">
+            "In the red soil of West Bengal lies a secret written in stone. Purulia isn't just a destination; it's a dialogue between the rugged hills and the ruins of forgotten dynasties."
+        </p>
+
+        <div class="feature">
+            <div class="feature-img">
+                <img src="https://i.ibb.co/Mx3rt6Sn/Garh-Panchkot.jpg" alt="Garh Panchkot History">
+            </div>
+            <div class="feature-info">
+                <span>HISTORICAL RUINS</span>
+                <h2>The Siege of Garh Panchkot</h2>
+                <p>Standing at the base of Panchet Hill, these terracotta temples tell a tragic tale. Once the seat of the Singh Deo dynasty, this fort was decimated during the 18th-century Bargi (Maratha) invasions. The ruins today serve as a haunting reminder of a kingdom that chose to perish rather than surrender.</p>
+                <p><b>Traveler Tip:</b> Visit during sunset when the red bricks glow like embers.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-img">
+                <img src="https://i.ibb.co/MxWzr83Z/Photo-of-Kashipur-Rajbari-03.jpg" alt="Kashipur Rajbari Architecture">
+            </div>
+            <div class="feature-info">
+                <span>ROYAL HERITAGE</span>
+                <h2>Kashipur Rajbari: A Living Legend</h2>
+                <p>The Kashipur Palace is one of the few places where history still breathes. Built with a blend of European and Indian architecture, it was the administrative heart of the region. The grand pillars and wide courtyards evoke images of the poetic gatherings (Sabhas) that once graced its halls.</p>
+                <p><b>Traveler Tip:</b> Look for the intricate wood carvings in the inner chambers.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-img">
+                <img src="https://i.ibb.co/RTs377NH/360-F-780951672-c-Jz-Ve-Oxybk-Hk-Ck-FDIOGUAlcq2-ADIHVO7.webp" alt="Purulia Nature">
+            </div>
+            <div class="feature-info">
+                <span>NATURE & SILENCE</span>
+                <h2>Murguma: The Mirror of Hills</h2>
+                <p>Beyond the ruins lies Murguma, a serene dam surrounded by the Ajodhya Hills. It is the perfect place to disconnect. In the winter, the "Palash" flowers bloom, turning the entire landscape into a sea of orange fire—a sight that has inspired Bengali poets for centuries.</p>
+                <p><b>Traveler Tip:</b> Perfect for stargazing and camping under the clear Purulia sky.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="contact-box">
+        <div class="contact-left">
+            <h3>Plan Your Journey</h3>
+            <p>Based in West Bengal, India</p>
+        </div>
+        <div class="contact-right">
+            <a href="mailto:subrojitbanerjee@gmail.com">subrojitbanerjee@gmail.com</a>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 30px; background: #eee; font-size: 0.8rem;">
+        CHRONICLE TRAILS &copy; 2026 | SUBROJIT BANERJEE
+    </footer>
+
+</body>
+</html>
